@@ -66,7 +66,8 @@ class HouseTest < Minitest::Test
 
   def test_a_house_can_summarize_details
     house = House.new("$400000", "123 sugar lane")
-    assert_equal {"price" => 400000, "address" => "123 sugar lane"}, house.details
+    details = {"price" => 400000, "address" => "123 sugar lane"}
+    assert_equal details, house.details
   end
 
 

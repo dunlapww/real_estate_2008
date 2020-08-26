@@ -20,6 +20,6 @@ class House
   end
 
   def details
-    ["price","address"].zip(@price,@address).to_h
+    ["price","address"].zip([@price, @address]).to_h
   end
 end
