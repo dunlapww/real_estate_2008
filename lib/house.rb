@@ -22,4 +22,12 @@ class House
   def details
     ["price","address"].zip([@price, @address]).to_h
   end
+
+  def price_per_square_foot
+    if @rooms == []
+      return "You need to add some rooms to calculate price per square foot!"
+    else
+      (@price.to_f / @rooms.reduce(0) {|sum,room| sum += room.area}).round(2)
+    end
+  end
 end

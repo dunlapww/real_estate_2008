@@ -71,6 +71,18 @@ class HouseTest < Minitest::Test
     assert_equal details, house.details
   end
 
+  def test_a_house_can_calculate_price_per_square_foot
+    house = House.new("$400000", "123 sugar lane")
 
+    assert_equal "You need to add some rooms to calculate price per square foot!",
+    house.price_per_square_foot
+
+    room1 = Room.new(:bedroom, 10, "13")
+    room2 = Room.new(:bedroom, 14, "17")
+    house.add_room(room1)
+    house.add_room(room2)
+    #130 + 238 = 368; 400000 / 368 = 1086.96
+    assert_equal 1086.96, house.price_per_square_foot
+  end
 
 end
