@@ -30,4 +30,9 @@ class House
       (@price.to_f / @rooms.reduce(0) {|sum,room| sum += room.area}).round(2)
     end
   end
+
+  def rooms_sorted_by_area
+    @rooms.sort_by {|room| room.area}
+  end
+
 end

@@ -85,4 +85,25 @@ class HouseTest < Minitest::Test
     assert_equal 1086.96, house.price_per_square_foot
   end
 
+  def test_a_house_can_return_rooms_sorted_by_area
+    house = House.new("$400000", "123 sugar lane")
+    room1 = Room.new(:bedroom, 10, "13")
+    house.add_room(room1)
+    room2 = Room.new(:bedroom, 14, "17")
+    house.add_room(room2)
+    room3 = Room.new(:bathroom, 8, "8")
+    house.add_room(room3)
+    room4 = Room.new(:bathroom, 12, "10")
+    house.add_room(room4)
+    room5 = Room.new(:bathroom, 9, "11")
+    house.add_room(room5)
+    room6 = Room.new(:living_room, 12, "15")
+    house.add_room(room6)
+
+    assert_equal 64, house.rooms_sorted_by_area.first.area
+    assert_equal 238, house.rooms_sorted_by_area.last.area
+    assert_equal 6, house.rooms_sorted_by_area.size
+  end
+
+
 end
