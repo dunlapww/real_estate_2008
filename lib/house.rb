@@ -18,4 +18,8 @@ class House
   def rooms_from_category(category)
     @rooms.select {|room| room.category == category}
   end
+
+  def details
+    ["price","address"].zip(@price,@address).to_h
+  end
 end

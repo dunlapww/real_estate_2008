@@ -64,6 +64,11 @@ class HouseTest < Minitest::Test
     assert_equal 3, house.rooms_from_category(:bathroom).size
   end
 
+  def test_a_house_can_summarize_details
+    house = House.new("$400000", "123 sugar lane")
+    assert_equal {"price" => 400000, "address" => "123 sugar lane"}, house.details
+  end
+
 
 
 end
